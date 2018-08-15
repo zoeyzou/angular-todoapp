@@ -68,4 +68,9 @@ export class TodoService {
     this.todoList = this.todoList.filter(todo => !todo.isCompleted);
     this.todoChanged.next(this.todoList.slice());
   }
+
+  completeAll(isAllCompleted: boolean) {
+    this.todoList.forEach(todo => todo.isCompleted = isAllCompleted);
+    this.todoChanged.next(this.todoList.slice());
+  }
 }

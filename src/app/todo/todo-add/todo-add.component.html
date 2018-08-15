@@ -7,7 +7,9 @@
       <label class="btn active">
         <input
           type="checkbox"
-          name="select-all"
+          name="complete-all"
+          [checked]="isAllCompleted"
+          (click)="onCompleteAll()"
           ngModel>
         <i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
       </label>

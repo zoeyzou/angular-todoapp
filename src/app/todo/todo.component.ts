@@ -28,4 +28,8 @@ export class TodoComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onAllCompleted(allCompleted: boolean) {
+    this.todoService.completeAll(allCompleted);
+  }
+
 }

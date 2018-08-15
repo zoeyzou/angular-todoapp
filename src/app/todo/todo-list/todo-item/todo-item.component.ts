@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TodoItem } from '../../shared/todo-item.model';
 import { TodoService } from '../../shared/todo.service';
 
@@ -7,7 +7,7 @@ import { TodoService } from '../../shared/todo.service';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit, DoCheck {
+export class TodoItemComponent implements OnInit {
 
   @Input() todo: TodoItem;
   @Input() id: number;
@@ -18,12 +18,8 @@ export class TodoItemComponent implements OnInit, DoCheck {
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    console.log(this.editMode);
   }
 
-  ngDoCheck() {
-
-  }
 
   onDeleteItem() {
     this.todoService.deleteTodo(this.id);
