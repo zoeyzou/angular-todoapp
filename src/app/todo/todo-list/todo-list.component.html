@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <ul class="todo-list">
+        <app-todo-item
+          *ngFor="let todoEl of todoList; index as i"
+          [todo]="todoEl"
+          [id]="i"></app-todo-item>
+    </ul>
+  </div>
+</div>
+

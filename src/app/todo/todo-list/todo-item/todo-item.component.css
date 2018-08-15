@@ -1,0 +1,151 @@
+li {
+  padding: 15px;
+  font-size: 24px;
+  line-height: 1.2;
+  border-bottom: 1px solid #ededed;
+}
+
+label {
+  margin-bottom: 0px !important;
+}
+
+.checkbox {
+  padding-left: 35px;
+  position: relative;
+}
+
+.checkbox label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  margin-left: -50px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  left: 0;
+  top: 0;
+  margin-left: -50px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  font-size: 25px;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+  transition: all 0.2s ease-in-out;
+  text-decoration: line-through;
+  color: #cccccc;
+}
+
+.checkbox input[type="checkbox"]:indeterminate + label::after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 3px;
+  background-color: #555555;
+  border-radius: 2px;
+  margin-left: -16.5px;
+  margin-top: 7px;
+}
+
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+}
+
+.checkbox-info input[type="checkbox"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+.checkbox-info input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+.checkbox-info input[type="checkbox"]:indeterminate + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+.sign {
+
+  font-family: "FontAwesome";
+  /* background: none; */
+  /* border: none; */
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+
+}
+
+.sign i {
+  font-style: normal;
+}
+
+.delete-sign {
+  color: rgba(206, 36, 36, 0.3) !important;
+}
+
+.edit-sign {
+  right: 30px;
+  color: rgba(83, 153, 4, 0.3) !important;
+}
+
+.edit-field {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 80%;
+
+}
+
+.edit-save {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  right: 10px;
+  height: 100%;
+  transition: all .2s ease-in-out;
+}
+
+.edit {
+  padding-right: 40px;
+
+}

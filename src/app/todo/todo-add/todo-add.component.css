@@ -1,0 +1,59 @@
+
+.todo-form {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.new-todo {
+  display: block;
+  padding: 16px;
+  border: none;
+  background: rgba(0, 0, 0, 0.003);
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.new-todo::placeholder {
+  color: rgba(156, 147, 147, 0.808);
+  font-style: italic;
+}
+
+/* .toggle-all {
+  background: none;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  width: 60px;
+  height: 34px;
+  text-align: center;
+  border: none;
+} */
+label input[type="checkbox"] {
+  display: none;
+}
+label.btn.active {
+  transform: translateY(25%);
+}
+label input[type="checkbox"] ~ i.fa.fa-square-o{
+  color: #c8c8c8;
+  display: inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+  display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+  display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+  color: #7AA3CC;
+  display: inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+color: #7AA3CC;
+}
+

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <form
+      (ngSubmit)="onSubmit(form)"
+      #form="ngForm"
+      class="todo-form">
+      <label class="btn active">
+        <input
+          type="checkbox"
+          name="select-all"
+          ngModel>
+        <i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+      </label>
+      <input
+        type="text"
+        class="new-todo"
+        name="item"
+        ngModel
+        required
+        placeholder="What needs to be done?">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+h1 {
+  width: 100%;
+  font-size: 100px;
+  color: rgba(206, 36, 36, 0.15);
+  text-align: center;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+  top: -120px;
+  position: absolute;
+}

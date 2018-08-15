@@ -1,27 +1,22 @@
-# AngularTodo
+# Angular - Todo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+This is my first angular project, mirroring the other todo app made by React ([link](http://todomvc.com/examples/react/#/)).
 
-## Development server
+# How to use
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Add**: Type in a todo item and press Enter, it will be in the todo list beneath it.
 
-## Code scaffolding
+**Edit**: Click on the pen icon, the input field will come out and you can edit it. After editting, press enter to save it. NoteL: you need to click into the input field to save or quit (press ESC key).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Delete**: Click the X icon to delete an item.
 
-## Build
+**Filter**: Below the list, there're three filters: all, active and completed. Click on any of them will lead you to the appointed category.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**Clear Complete**: Click on "Clear Complete" to clean up the list, which will delete all the completed items.
 
-## Running unit tests
+# About me
+I'm Zoey Z, a beginner of programming. I started learning Angular two weeks ago, before that I had learned JavaScript for 4 months full-timely. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Contact me
+If you notice any bugs or just have some ideas of new features, please send me a msg. 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
