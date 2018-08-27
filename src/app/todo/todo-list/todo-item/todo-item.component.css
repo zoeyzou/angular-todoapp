@@ -71,7 +71,7 @@ label {
   font-size: 25px;
 }
 
-.checkbox input[type="checkbox"]:checked + label {
+.checkbox input[type="checkbox"]:checked ~ input[type="text"] {
   transition: all 0.2s ease-in-out;
   text-decoration: line-through;
   color: #cccccc;

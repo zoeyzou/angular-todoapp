@@ -19,6 +19,7 @@
       [disabled]="!editMode"
       #todoItem>
     <a
+      *ngIf="!todo.isCompleted"
       class="sign edit-sign"
       (click)="onEditItem(todoItem)"><i class="fas fa-pen"></i></a>
     <a
