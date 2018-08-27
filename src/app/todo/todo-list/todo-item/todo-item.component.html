@@ -11,34 +11,18 @@
     </label>
     <input
       type="text"
+      id="input{{id}}"
       value="{{ todo.itemName }}"
       (blur)="discardEdit()"
       (keyup.esc)="discardEdit()"
       (keyup.enter)="onSave(todoItem.value)"
       [disabled]="!editMode"
       #todoItem>
-    <!-- <div
-      class="edit-field"
-      *ngIf="editMode">
-      <input
-        id="edit{{id}}"
-        type="text"
-        class="edit"
-        value="{{ todo.itemName }}"
-        (blur)="discardEdit()"
-        (keyup.esc)="discardEdit()"
-        (keyup.enter)="onSave(editedTodo.value)"
-        #editedTodo
-        autofocus>
-      <a
-        class="edit-save"
-        (click)="onSave(editedTodo)"><i class="fas fa-save"></i></a>
-    </div> -->
     <a
       class="sign edit-sign"
-      (click)="onEditItem()"><i class="fas fa-pen"></i></a>
+      (click)="onEditItem(todoItem)"><i class="fas fa-pen"></i></a>
     <a
       class="sign delete-sign"
-      (click)="onDeleteItem()"><i class="fas fa-times"></i></a>
+      (click)="onDeleteItem(todoItem)"><i class="fas fa-times"></i></a>
   </div>
 </li>

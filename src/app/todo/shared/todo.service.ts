@@ -9,6 +9,7 @@ import { TodoItem } from './todo-item.model';
 export class TodoService {
   todoChanged = new Subject();
   todoFiltered = new Subject();
+  itemOnEdit: TodoItem;
 
   todoList: TodoItem[] = [
     new TodoItem('Eat an apple', true),

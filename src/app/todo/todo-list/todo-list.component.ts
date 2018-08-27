@@ -36,9 +36,4 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
   }
-
-
-  onEnter(todo: string) {
-    console.log(todo);
-  }
 }
