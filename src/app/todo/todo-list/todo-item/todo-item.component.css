@@ -18,6 +18,7 @@ label {
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  top: -15px;
   padding-left: 5px;
 }
 
@@ -102,6 +103,16 @@ label {
 .checkbox-info input[type="checkbox"]:indeterminate + label::before {
   background-color: #5bc0de;
   border-color: #5bc0de;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 5px;
+}
+
+input[type="text"]:disabled {
+  background: transparent;
+  border: none;
 }
 
 .sign {

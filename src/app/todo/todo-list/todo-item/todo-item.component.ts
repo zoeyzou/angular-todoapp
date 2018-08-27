@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { TodoItem } from '../../shared/todo-item.model';
 import { TodoService } from '../../shared/todo.service';
 
@@ -12,6 +12,8 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: TodoItem;
   @Input() id: number;
 
+  @ViewChild('todoItem') item: ElementRef;
+
   editMode = false;
 
 
@@ -22,6 +24,7 @@ export class TodoItemComponent implements OnInit {
 
 
   onDeleteItem() {
+    console.log(this.id);
     this.todoService.deleteTodo(this.id);
   }
 
@@ -31,8 +34,12 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEditItem() {
+    if (this.editMode) {
+      return this.editMode = false;
+    }
     this.editMode = true;
-    console.log(this.editMode);
+    console.log(this.item.nativeElement);
+    this.item.nativeElement.focus();
     console.log(this.id);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TodoService } from '../shared/todo.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,21 +10,31 @@ import { Subscription } from 'rxjs';
 })
 export class TodoListComponent implements OnInit, OnDestroy {
   todoList;
+  private ngUnsubscribe = new Subject<boolean>();
   private subscription: Subscription;
+
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.todoList = this.todoService.getTodos();
-    this.subscription = this.todoService.todoChanged.subscribe(
-      (todoList) => {
-        this.todoList = todoList;
-      }
-    );
+    this.todoService.todoFiltered
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (todoList) => {
+          this.todoList = todoList;
+        }
+      );
+    this.todoService.todoChanged
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (todoList) => {
+          this.todoList = todoList;
+        }
+      );
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 

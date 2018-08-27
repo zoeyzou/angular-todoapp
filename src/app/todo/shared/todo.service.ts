@@ -8,6 +8,7 @@ import { TodoItem } from './todo-item.model';
 })
 export class TodoService {
   todoChanged = new Subject();
+  todoFiltered = new Subject();
 
   todoList: TodoItem[] = [
     new TodoItem('Eat an apple', true),
@@ -22,16 +23,10 @@ export class TodoService {
   addTodo(todo: TodoItem) {
     this.todoList.push(todo);
     this.todoChanged.next(this.todoList.slice());
-    console.log(this.todoList);
   }
 
   getTodos() {
     return this.todoList.slice();
-  }
-
-  setTodos(todos: TodoItem[]) {
-    this.todoList = todos;
-    this.todoChanged.next(this.todoList.slice());
   }
 
   deleteTodo(id: number) {
@@ -46,7 +41,7 @@ export class TodoService {
     console.log(this.todoList);
   }
 
-  filterTodo(condition: string) {
+  filterTodo(condition: string): TodoItem[] {
     console.log(condition);
 
     let filteredTodo;
@@ -61,7 +56,8 @@ export class TodoService {
 
     console.log(filteredTodo);
 
-    this.todoChanged.next(filteredTodo);
+    this.todoFiltered.next(filteredTodo);
+    return filteredTodo;
   }
 
   clearCompleted() {

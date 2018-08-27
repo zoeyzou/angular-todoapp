@@ -1,40 +1,48 @@
-import { Component, OnInit, OnChanges, DoCheck, OnDestroy } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { TodoService } from '../shared/todo.service';
 import { TodoItem } from '../shared/todo-item.model';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-stat',
   templateUrl: './todo-stat.component.html',
   styleUrls: ['./todo-stat.component.css']
 })
-export class TodoStatComponent implements OnInit, DoCheck, OnDestroy {
+export class TodoStatComponent implements OnInit, DoCheck {
 
   someCompleted: boolean;
+  totalTodos: TodoItem[];
   todoItems: TodoItem[];
-  subscription: Subscription;
+  private ngUnsubscribe = new Subject<boolean>();
 
   filteredView = 'all';
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.todoItems = this.todoService.getTodos();
+    this.totalTodos = this.todoService.getTodos();
+    this.todoItems = this.todoService.filterTodo(this.filteredView);
     this.someCompleted = this.todoItems.some(item => item.isCompleted);
-    this.subscription = this.todoService.todoChanged.subscribe(
-      (todoList: TodoItem[]) => {
-        this.todoItems = todoList;
-      }
-    );
+    this.todoService.todoFiltered
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (todoList: TodoItem[]) => {
+          this.todoItems = todoList;
+        }
+      );
+    this.todoService.todoChanged
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (todoList: TodoItem[]) => {
+          this.totalTodos = todoList;
+        }
+      );
   }
 
   ngDoCheck() {
     console.log('something changed');
     this.someCompleted = this.todoItems.some(item => item.isCompleted);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   onFilter(condition: string) {

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="footer row">
-      <p class="col-xs-3 col-sm-3 col-md-3 col-lg-3 flex stat">{{ todoItems.length }} item{{ todoItems.length > 1 ? 's' : '' }} left</p>
+      <p class="col-xs-3 col-sm-3 col-md-3 col-lg-3 flex stat">{{ totalTodos.length }} item{{ totalTodos.length > 1 ? 's' : '' }} left</p>
       <ul class="col-xs-6 col-sm-6 col-md-6 col-lg-6 flex filter">
         <li><a (click)="onFilter('all')" [class.selected]="filteredView == 'all'">All</a></li>
         <li><a (click)="onFilter('active')" [class.selected]="filteredView == 'active'">Active</a></li>

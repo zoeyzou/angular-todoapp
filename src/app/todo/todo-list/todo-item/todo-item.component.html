@@ -8,9 +8,16 @@
       (click)="onChangeStatus()"
       [checked]="todo.isCompleted">
     <label for="check{{id}}">
-        {{ todo.itemName }}
     </label>
-    <div
+    <input
+      type="text"
+      value="{{ todo.itemName }}"
+      (blur)="discardEdit()"
+      (keyup.esc)="discardEdit()"
+      (keyup.enter)="onSave(todoItem.value)"
+      [disabled]="!editMode"
+      #todoItem>
+    <!-- <div
       class="edit-field"
       *ngIf="editMode">
       <input
@@ -23,10 +30,10 @@
         (keyup.enter)="onSave(editedTodo.value)"
         #editedTodo
         autofocus>
-      <!-- <a
+      <a
         class="edit-save"
-        (click)="onSave(editedTodo)"><i class="fas fa-save"></i></a> -->
-    </div>
+        (click)="onSave(editedTodo)"><i class="fas fa-save"></i></a>
+    </div> -->
     <a
       class="sign edit-sign"
       (click)="onEditItem()"><i class="fas fa-pen"></i></a>
